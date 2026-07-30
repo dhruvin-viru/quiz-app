@@ -48,7 +48,7 @@ function Quize() {
             const choices = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer].sort(() => Math.random() - 0.5)
             setRandomizedChoices(choices)
         }
-    }, [qid, questions])
+    }, [currentQuestion, qid, questions])
 
     const addans = (ans) => {
         const temp = JSON.parse(localStorage.getItem(`userans_${difficulty}`))

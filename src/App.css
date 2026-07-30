@@ -1,38 +1,306 @@
-.App {
-  text-align: center;
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Navigation */
+a {
+    text-decoration: none;
+    color: #667eea;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a:hover {
+    color: #764ba2;
 }
 
-.App-link {
-  color: #61dafb;
+/* Home Link */
+div>a {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div>a:hover {
+    background-color: #e0e0e0;
+}
+
+/* Main Container */
+div {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Difficulty Section */
+div>div:nth-child(2)>div:first-child {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Question Container */
+div>div:nth-child(2)>div:nth-child(2) {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Question Text */
+p {
+    margin-bottom: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+p:first-of-type {
+    font-size: 18px;
+    font-weight: 600;
+    color: #667eea;
+}
+
+/* Options Label */
+p:nth-of-type(2) {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Radio Button Options */
+label {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #555;
+}
+
+label:hover {
+    background-color: #f0f0f0;
+    border-color: #667eea;
+}
+
+input[type='radio'] {
+    margin-right: 12px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: #667eea;
+}
+
+input[type='radio']:checked+ {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Buttons Container */
+form {
+    margin-top: 20px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.button-group button {
+    flex: 1;
+    margin: 0;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #667eea;
+    color: white;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover:not(:disabled) {
+    background-color: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+button[type="submit"] {
+    background-color: #10b981;
+    margin-top: 20px;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #059669;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Result Section */
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.show h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Result Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+table tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+table tr:first-child {
+    background-color: #f9f9f9;
+    font-weight: 600;
+}
+
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+table td:first-child {
+    width: 50%;
+    color: #555;
+    background-color: #f9f9f9;
+}
+
+table td:last-child {
+    width: 50%;
+}
+
+/* Answer Cell Styling - Correct Answer */
+td.correct {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: 600;
+    border-left: 4px solid #28a745;
+}
+
+/* Answer Cell Styling - Incorrect Answer */
+td.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: 600;
+    border-left: 4px solid #dc3545;
+}
+
+/* Empty Answer Cell */
+td.empty {
+    background-color: #fff3cd;
+    color: #856404;
+    font-weight: 600;
+    border-left: 4px solid #ffc107;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    div>div:nth-child(2)>div:nth-child(2) {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    label {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
 }
